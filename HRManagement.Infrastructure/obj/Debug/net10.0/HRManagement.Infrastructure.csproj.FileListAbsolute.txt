@@ -1,0 +1,17 @@
+E:\professional\PRO_1\HRManagement.Infrastructure\bin\Debug\net10.0\HRManagement.Infrastructure.deps.json
+E:\professional\PRO_1\HRManagement.Infrastructure\bin\Debug\net10.0\HRManagement.Infrastructure.runtimeconfig.json
+E:\professional\PRO_1\HRManagement.Infrastructure\bin\Debug\net10.0\HRManagement.Infrastructure.dll
+E:\professional\PRO_1\HRManagement.Infrastructure\bin\Debug\net10.0\HRManagement.Infrastructure.pdb
+E:\professional\PRO_1\HRManagement.Infrastructure\bin\Debug\net10.0\HRManagement.Domain.dll
+E:\professional\PRO_1\HRManagement.Infrastructure\bin\Debug\net10.0\HRManagement.Domain.pdb
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.csproj.AssemblyReference.cache
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.AssemblyInfoInputs.cache
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.AssemblyInfo.cs
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.csproj.CoreCompileInputs.cache
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManage.5C57F789.Up2Date
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.dll
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\refint\HRManagement.Infrastructure.dll
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.pdb
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\HRManagement.Infrastructure.genruntimeconfig.cache
+E:\professional\PRO_1\HRManagement.Infrastructure\obj\Debug\net10.0\ref\HRManagement.Infrastructure.dll

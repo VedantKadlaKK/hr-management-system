@@ -1,0 +1,17 @@
+E:\professional\PRO_1\HRManagement.Application\bin\Debug\net10.0\HRManagement.Application.deps.json
+E:\professional\PRO_1\HRManagement.Application\bin\Debug\net10.0\HRManagement.Application.dll
+E:\professional\PRO_1\HRManagement.Application\bin\Debug\net10.0\HRManagement.Application.pdb
+E:\professional\PRO_1\HRManagement.Application\bin\Debug\net10.0\HRManagement.Domain.dll
+E:\professional\PRO_1\HRManagement.Application\bin\Debug\net10.0\HRManagement.Infrastructure.dll
+E:\professional\PRO_1\HRManagement.Application\bin\Debug\net10.0\HRManagement.Domain.pdb
+E:\professional\PRO_1\HRManagement.Application\bin\Debug\net10.0\HRManagement.Infrastructure.pdb
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.csproj.AssemblyReference.cache
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.AssemblyInfoInputs.cache
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.AssemblyInfo.cs
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.csproj.CoreCompileInputs.cache
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManage.380E2EFB.Up2Date
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.dll
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\refint\HRManagement.Application.dll
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.pdb
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\ref\HRManagement.Application.dll

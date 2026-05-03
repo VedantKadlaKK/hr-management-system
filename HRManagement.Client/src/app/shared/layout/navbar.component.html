@@ -1,0 +1,34 @@
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <mat-icon>business</mat-icon>
+    <span>HR Manager</span>
+  </div>
+
+  <mat-nav-list>
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
+      <mat-icon matListItemIcon>dashboard</mat-icon>
+      <span matListItemTitle>Dashboard</span>
+    </a>
+    <a mat-list-item routerLink="/employees" routerLinkActive="active-link">
+      <mat-icon matListItemIcon>people</mat-icon>
+      <span matListItemTitle>Employees</span>
+    </a>
+    <a mat-list-item routerLink="/leaves" routerLinkActive="active-link">
+      <mat-icon matListItemIcon>event_note</mat-icon>
+      <span matListItemTitle>Leave Requests</span>
+    </a>
+  </mat-nav-list>
+
+  <div class="sidebar-footer">
+    <div class="user-info">
+      <mat-icon>account_circle</mat-icon>
+      <div>
+        <div class="user-name">{{ authService.getUser()?.fullName }}</div>
+        <div class="user-role">{{ authService.getUser()?.role }}</div>
+      </div>
+    </div>
+    <button mat-icon-button (click)="logout()" title="Logout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</nav>
