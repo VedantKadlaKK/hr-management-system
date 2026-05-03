@@ -8,14 +8,14 @@ A full-stack HR Management web application built with ASP.NET Core (.NET 10) and
 
 ## Features
 
-- Authentication — Register, Login, Logout with JWT tokens
-- Employee Management — Full CRUD (Create, Read, Update, Delete)
-- Department Management — Organize employees by departments
-- Leave Requests — Apply, approve, and reject leave applications
-- Dashboard — Live stats (Total Employees, Active, Pending Leaves, Approved Leaves)
-- Quick Actions — Fast navigation to key HR operations
-- Route Guards — Protected routes for authenticated users only
-- Role-Based Access — Admin, HR, and Employee roles
+- **Authentication** — Register, Login, Logout with JWT tokens
+- **Employee Management** — Full CRUD (Create, Read, Update, Delete)
+- **Department Management** — Organize employees by departments
+- **Leave Requests** — Apply, approve, and reject leave applications
+- **Dashboard** — Live stats (Total Employees, Active, Pending Leaves, Approved Leaves)
+- **Quick Actions** — Fast navigation to key HR operations
+- **Route Guards** — Protected routes for authenticated users only
+- **Role-Based Access** — Admin, HR, and Employee roles
 
 ---
 
@@ -23,33 +23,33 @@ A full-stack HR Management web application built with ASP.NET Core (.NET 10) and
 
 ### Backend
 
-| Technology                     | Purpose           |
-| ------------------------------ | ----------------- |
-| ASP.NET Core Web API (.NET 10) | REST API          |
-| Entity Framework Core          | ORM + Migrations  |
-| SQL Server 2022                | Database          |
-| ASP.NET Core Identity          | User management   |
-| JWT Bearer Authentication      | Token-based auth  |
-| Swagger / OpenAPI              | API documentation |
+| Technology                      | Purpose               |
+| ------------------------------- | --------------------- |
+| ASP.NET Core Web API (.NET 10)  | REST API              |
+| Entity Framework Core           | ORM + Migrations      |
+| SQL Server 2022                 | Database              |
+| ASP.NET Core Identity           | User management       |
+| JWT Bearer Authentication       | Token-based auth      |
+| Swagger / OpenAPI               | API documentation     |
 
 ### Frontend
 
-| Technology        | Purpose              |
-| ----------------- | -------------------- |
-| Angular 17        | Frontend framework   |
-| Angular Material  | UI component library |
-| TypeScript        | Language             |
-| Reactive Forms    | Form handling        |
-| HTTP Interceptors | Auto JWT attachment  |
-| Route Guards      | Protected navigation |
-| RxJS              | Async data streams   |
-| SCSS              | Styling              |
+| Technology         | Purpose                  |
+| ------------------ | ------------------------ |
+| Angular 17         | Frontend framework       |
+| Angular Material   | UI component library     |
+| TypeScript         | Language                 |
+| Reactive Forms     | Form handling            |
+| HTTP Interceptors  | Auto JWT attachment      |
+| Route Guards       | Protected navigation     |
+| RxJS               | Async data streams       |
+| SCSS               | Styling                  |
 
 ---
 
 ## Architecture
 
-Clean Architecture pattern with 5 layers:
+Clean Architecture pattern with 4 layers:
 
 ├── HRManagement.Domain/ # Entities: Employee, Department, LeaveRequest
 ├── HRManagement.Application/ # DTOs, Interfaces, Business Services
@@ -64,23 +64,23 @@ Clean Architecture pattern with 5 layers:
 
 ### Prerequisites
 
-- .NET 10 SDK — https://dotnet.microsoft.com/download
-- Node.js 18+ — https://nodejs.org/
-- SQL Server 2022 — https://www.microsoft.com/en-us/sql-server
-- Angular CLI — npm install -g @angular/cli
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
+- [Node.js 18+](https://nodejs.org/)
+- [SQL Server 2022](https://www.microsoft.com/en-us/sql-server)
+- [Angular CLI](https://angular.io/cli) — `npm install -g @angular/cli`
 
 ---
 
 ### Backend Setup
 
-1. Clone the repository
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/VedantKadlaKK/hr-management-system.git
 cd hr-management-system
 ```
 
-2. Update connection string in `HRManagement.API/appsettings.json`
+**2. Update connection string in `HRManagement.API/appsettings.json`**
 
 ```json
 "ConnectionStrings": {
@@ -88,65 +88,65 @@ cd hr-management-system
 }
 ```
 
-3. Apply database migrations
+**3. Apply database migrations**
 
 ```bash
 dotnet ef database update --project HRManagement.Infrastructure --startup-project HRManagement.API
 ```
 
-4. Run the API
+**4. Run the API**
 
 ```bash
 dotnet run --project HRManagement.API
 ```
 
-- API runs at: http://localhost:5019
-- Swagger UI: http://localhost:5019/swagger
+- API runs at: `http://localhost:5019`
+- Swagger UI: `http://localhost:5019/swagger`
 
 ---
 
 ### Frontend Setup
 
-1. Navigate to client folder
+**1. Navigate to client folder**
 
 ```bash
 cd HRManagement.Client
 ```
 
-2. Install dependencies
+**2. Install dependencies**
 
 ```bash
 npm install
 ```
 
-3. Run Angular app
+**3. Run Angular app**
 
 ```bash
 ng serve
 ```
 
-App runs at: http://localhost:4200
+App runs at: `http://localhost:4200`
 
 ---
 
 ## Screenshots
 
-| Login                           | Dashboard                           |
-| ------------------------------- | ----------------------------------- |
+| Login | Dashboard |
+| ----- | --------- |
 | ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) |
 
-| Employees                               | Leave Requests                    |
-| --------------------------------------- | --------------------------------- |
+| Employees | Leave Requests |
+| --------- | -------------- |
 | ![Employees](screenshots/employees.png) | ![Leaves](screenshots/leaves.png) |
 
 ---
 
 ## Default Test Credentials
 
-After registering via /register:
+After registering via `/register`:
 
-- Role options: Admin, HR, Employee
-- Password minimum: 6 characters
+- **Role options:** `Admin`, `HR`, `Employee`
+- **Password minimum:** 6 characters
 
 ---
 
@@ -154,29 +154,29 @@ After registering via /register:
 
 ### Auth
 
-| Method | Endpoint             | Description           |
-| ------ | -------------------- | --------------------- |
-| POST   | /api/auth/register   | Register new user     |
-| POST   | /api/auth/login      | Login + get JWT token |
+| Method | Endpoint              | Description           |
+| ------ | --------------------- | --------------------- |
+| POST   | `/api/auth/register`  | Register new user     |
+| POST   | `/api/auth/login`     | Login + get JWT token |
 
 ### Employees
 
-| Method | Endpoint              | Description        |
-| ------ | --------------------- | ------------------ |
-| GET    | /api/employees        | Get all employees  |
-| GET    | /api/employees/{id}   | Get employee by ID |
-| POST   | /api/employees        | Create employee    |
-| PUT    | /api/employees/{id}   | Update employee    |
-| DELETE | /api/employees/{id}   | Delete employee    |
+| Method | Endpoint               | Description          |
+| ------ | ---------------------- | -------------------- |
+| GET    | `/api/employees`       | Get all employees    |
+| GET    | `/api/employees/{id}`  | Get employee by ID   |
+| POST   | `/api/employees`       | Create employee      |
+| PUT    | `/api/employees/{id}`  | Update employee      |
+| DELETE | `/api/employees/{id}`  | Delete employee      |
 
 ### Leave Requests
 
-| Method | Endpoint                  | Description            |
-| ------ | ------------------------- | ---------------------- |
-| GET    | /api/leaverequests        | Get all leave requests |
-| POST   | /api/leaverequests        | Create leave request   |
-| PUT    | /api/leaverequests/{id}   | Update leave request   |
-| DELETE | /api/leaverequests/{id}   | Delete leave request   |
+| Method | Endpoint                    | Description              |
+| ------ | --------------------------- | ------------------------ |
+| GET    | `/api/leaverequests`        | Get all leave requests   |
+| POST   | `/api/leaverequests`        | Create leave request     |
+| PUT    | `/api/leaverequests/{id}`   | Update leave request     |
+| DELETE | `/api/leaverequests/{id}`   | Delete leave request     |
 
 ---
 
@@ -192,13 +192,13 @@ After registering via /register:
 
 ## Author
 
-Vedant Kadlak
+**Vedant Kadlak**
 
-- GitHub: https://github.com/VedantKadlaKK
-- LinkedIn: https://linkedin.com/in/vedant-kadlak
+- GitHub: [@VedantKadlaKK](https://github.com/VedantKadlaKK)
+- LinkedIn: [Vedant Kadlak](https://linkedin.com/in/vedant-kadlak)
 
 ---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
