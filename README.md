@@ -195,7 +195,7 @@ After registering via `/register`:
 **Vedant Kadlak**
 
 - GitHub: [@VedantKadlaKK](https://github.com/VedantKadlaKK)
-- LinkedIn: [Vedant Kadlak](https://linkedin.com/in/vedant-kadlak)
+- LinkedIn: [Vedant Kadlak](https://www.linkedin.com/in/vedant-kadlak-b6047128b/)
 
 ---
 
