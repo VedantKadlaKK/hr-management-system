@@ -4,7 +4,7 @@
   </div>
 
   <div class="stats-grid">
-    <mat-card class="stat-card blue">
+    <mat-card class="stat-card blue" *ngIf="authService.canManageEmployees()">
       <mat-card-content>
         <div class="stat-info">
           <span class="stat-number">{{ totalEmployees }}</span>
@@ -14,7 +14,7 @@
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="stat-card green">
+    <mat-card class="stat-card green" *ngIf="authService.canManageEmployees()">
       <mat-card-content>
         <div class="stat-info">
           <span class="stat-number">{{ activeEmployees }}</span>
@@ -48,7 +48,7 @@
   <div class="quick-actions">
     <h2>Quick Actions</h2>
     <div class="actions-grid">
-      <a routerLink="/employees/new" class="action-btn">
+      <a *ngIf="authService.canManageEmployees()" routerLink="/employees/new" class="action-btn">
         <mat-icon>person_add</mat-icon>
         <span>Add Employee</span>
       </a>
@@ -56,7 +56,7 @@
         <mat-icon>note_add</mat-icon>
         <span>New Leave Request</span>
       </a>
-      <a routerLink="/employees" class="action-btn">
+      <a *ngIf="authService.canManageEmployees()" routerLink="/employees" class="action-btn">
         <mat-icon>people</mat-icon>
         <span>View Employees</span>
       </a>

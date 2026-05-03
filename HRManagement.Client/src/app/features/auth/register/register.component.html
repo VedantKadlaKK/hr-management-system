@@ -28,7 +28,7 @@
           </button>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
+        <mat-form-field appearance="outline" class="full-width" *ngIf="authService.canCreatePrivilegedUsers()">
           <mat-label>Role</mat-label>
           <mat-select formControlName="role">
             <mat-option *ngFor="let r of roles" [value]="r">{{ r }}</mat-option>

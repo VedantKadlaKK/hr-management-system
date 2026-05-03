@@ -1,5 +1,6 @@
 using HRManagement.Application.DTOs;
 using HRManagement.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRManagement.API.Controllers;
@@ -16,11 +17,17 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
+    [AllowAnonymous]
     public async Task<IActionResult> Register(RegisterDto dto)
     {
         try
         {
-            var result = await _authService.RegisterAsync(dto);
+            var isAdmin = User.Identity?.IsAuthenticated == true && User.IsInRole("Admin");
+            if (!isAdmin && dto.Role != "Employee")
+                return BadRequest(new { message = "Only admins can create Admin or HR accounts." });
+
+            var registerDto = isAdmin ? dto : dto with { Role = "Employee" };
+            var result = await _authService.RegisterAsync(registerDto);
             return Ok(result);
         }
         catch (Exception ex)
@@ -30,6 +37,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
+    [AllowAnonymous]
     public async Task<IActionResult> Login(LoginDto dto)
     {
         try

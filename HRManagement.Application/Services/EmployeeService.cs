@@ -31,6 +31,14 @@ public class EmployeeService : IEmployeeService
         return employee == null ? null : MapToDto(employee);
     }
 
+    public async Task<EmployeeDto?> GetByEmailAsync(string email)
+    {
+        var employee = await _context.Employees
+            .Include(e => e.Department)
+            .FirstOrDefaultAsync(e => e.Email == email);
+        return employee == null ? null : MapToDto(employee);
+    }
+
     public async Task<EmployeeDto> CreateAsync(CreateEmployeeDto dto)
     {
         var employee = new Employee

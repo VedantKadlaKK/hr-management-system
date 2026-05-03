@@ -1,10 +1,12 @@
 using HRManagement.Infrastructure.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace HRManagement.API.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class DepartmentsController : ControllerBase
 {

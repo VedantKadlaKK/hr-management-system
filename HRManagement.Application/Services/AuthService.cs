@@ -12,16 +12,27 @@ namespace HRManagement.Application.Services;
 public class AuthService : IAuthService
 {
     private readonly UserManager<IdentityUser> _userManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
     private readonly IConfiguration _config;
 
-    public AuthService(UserManager<IdentityUser> userManager, IConfiguration config)
+    public AuthService(
+        UserManager<IdentityUser> userManager,
+        RoleManager<IdentityRole> roleManager,
+        IConfiguration config)
     {
         _userManager = userManager;
+        _roleManager = roleManager;
         _config = config;
     }
 
     public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
     {
+        if (dto.Role is not ("Admin" or "HR" or "Employee"))
+            throw new Exception("Invalid role selected.");
+
+        if (!await _roleManager.RoleExistsAsync(dto.Role))
+            throw new Exception("Selected role is not available.");
+
         var existing = await _userManager.FindByEmailAsync(dto.Email);
         if (existing != null)
             throw new Exception("Email already registered.");
@@ -36,7 +47,10 @@ public class AuthService : IAuthService
         if (!result.Succeeded)
             throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
 
-        await _userManager.AddToRoleAsync(user, dto.Role);
+        var roleResult = await _userManager.AddToRoleAsync(user, dto.Role);
+        if (!roleResult.Succeeded)
+            throw new Exception(string.Join(", ", roleResult.Errors.Select(e => e.Description)));
+
         return GenerateToken(user, dto.FullName, dto.Role);
     }
 

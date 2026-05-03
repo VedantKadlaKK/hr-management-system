@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { EmployeeService } from '../../core/services/employee.service';
 import { LeaveRequestService } from '../../core/services/leave-request.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,15 +23,18 @@ export class DashboardComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private leaveService: LeaveRequestService,
+    public authService: AuthService,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
-    this.employeeService.getAll().subscribe(employees => {
-      this.totalEmployees = employees.length;
-      this.activeEmployees = employees.filter(e => e.isActive).length;
-      this.cdr.detectChanges();
-    });
+    if (this.authService.canManageEmployees()) {
+      this.employeeService.getAll().subscribe(employees => {
+        this.totalEmployees = employees.length;
+        this.activeEmployees = employees.filter(e => e.isActive).length;
+        this.cdr.detectChanges();
+      });
+    }
 
     this.leaveService.getAll().subscribe(leaves => {
       this.pendingLeaves = leaves.filter(l => l.status === 'Pending').length;

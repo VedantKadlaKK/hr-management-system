@@ -21,11 +21,13 @@ export class AuthService {
     );
   }
 
-  register(dto: RegisterDto): Observable<AuthResponse> {
+  register(dto: RegisterDto, persistSession = true): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/register`, dto).pipe(
       tap(res => {
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('user', JSON.stringify(res));
+        if (persistSession) {
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('user', JSON.stringify(res));
+        }
       })
     );
   }
@@ -42,6 +44,27 @@ export class AuthService {
   getUser(): AuthResponse | null {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
+  }
+
+  getRole(): string | null {
+    return this.getUser()?.role ?? null;
+  }
+
+  hasRole(...roles: string[]): boolean {
+    const role = this.getRole();
+    return !!role && roles.includes(role);
+  }
+
+  canManageEmployees(): boolean {
+    return this.hasRole('Admin', 'HR');
+  }
+
+  canApproveLeaves(): boolean {
+    return this.hasRole('Admin', 'HR');
+  }
+
+  canCreatePrivilegedUsers(): boolean {
+    return this.hasRole('Admin');
   }
 
   isLoggedIn(): boolean {

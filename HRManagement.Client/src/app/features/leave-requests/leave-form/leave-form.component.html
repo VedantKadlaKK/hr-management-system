@@ -8,7 +8,7 @@
       <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-grid">
 
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="outline" *ngIf="authService.canApproveLeaves(); else employeeSelf">
             <mat-label>Employee</mat-label>
             <mat-select formControlName="employeeId">
               <mat-option *ngFor="let e of employees" [value]="e.id">
@@ -16,6 +16,13 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <ng-template #employeeSelf>
+            <mat-form-field appearance="outline">
+              <mat-label>Employee</mat-label>
+              <input matInput [value]="currentEmployee ? currentEmployee.firstName + ' ' + currentEmployee.lastName : 'Loading...'" disabled />
+            </mat-form-field>
+          </ng-template>
 
           <mat-form-field appearance="outline">
             <mat-label>Leave Type</mat-label>

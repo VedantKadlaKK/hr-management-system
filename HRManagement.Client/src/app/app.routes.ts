@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+import { roleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,19 +24,22 @@ export const routes: Routes = [
     path: 'employees',
     loadComponent: () =>
       import('./features/employees/employee-list/employee-list.component').then(m => m.EmployeeListComponent),
-    canActivate: [authGuard]
+    canActivate: [authGuard, roleGuard],
+    data: { roles: ['Admin', 'HR'] }
   },
   {
     path: 'employees/new',
     loadComponent: () =>
       import('./features/employees/employee-form/employee-form.component').then(m => m.EmployeeFormComponent),
-    canActivate: [authGuard]
+    canActivate: [authGuard, roleGuard],
+    data: { roles: ['Admin', 'HR'] }
   },
   {
     path: 'employees/edit/:id',
     loadComponent: () =>
       import('./features/employees/employee-form/employee-form.component').then(m => m.EmployeeFormComponent),
-    canActivate: [authGuard]
+    canActivate: [authGuard, roleGuard],
+    data: { roles: ['Admin', 'HR'] }
   },
   {
     path: 'leaves',

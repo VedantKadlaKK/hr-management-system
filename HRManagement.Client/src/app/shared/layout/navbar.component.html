@@ -9,13 +9,17 @@
       <mat-icon matListItemIcon>dashboard</mat-icon>
       <span matListItemTitle>Dashboard</span>
     </a>
-    <a mat-list-item routerLink="/employees" routerLinkActive="active-link">
+    <a *ngIf="authService.canManageEmployees()" mat-list-item routerLink="/employees" routerLinkActive="active-link">
       <mat-icon matListItemIcon>people</mat-icon>
       <span matListItemTitle>Employees</span>
     </a>
     <a mat-list-item routerLink="/leaves" routerLinkActive="active-link">
       <mat-icon matListItemIcon>event_note</mat-icon>
       <span matListItemTitle>Leave Requests</span>
+    </a>
+    <a *ngIf="authService.canCreatePrivilegedUsers()" mat-list-item routerLink="/register" routerLinkActive="active-link">
+      <mat-icon matListItemIcon>person_add</mat-icon>
+      <span matListItemTitle>Add User</span>
     </a>
   </mat-nav-list>
 

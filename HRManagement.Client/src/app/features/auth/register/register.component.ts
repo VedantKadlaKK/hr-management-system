@@ -25,11 +25,11 @@ export class RegisterComponent {
   isLoading = false;
   hidePassword = true;
 
-  roles = ['Admin', 'HR', 'Employee'];
+  roles = ['Employee'];
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private snackBar: MatSnackBar
   ) {
@@ -39,14 +39,27 @@ export class RegisterComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
       role: ['Employee', Validators.required]
     });
+
+    if (this.authService.canCreatePrivilegedUsers()) {
+      this.roles = ['Admin', 'HR', 'Employee'];
+    }
   }
 
   submit() {
     if (this.form.invalid) return;
     this.isLoading = true;
-    this.authService.register(this.form.value).subscribe({
+    const persistSession = !this.authService.isLoggedIn();
+
+    this.authService.register(this.form.value, persistSession).subscribe({
       next: () => {
-        this.router.navigate(['/dashboard']);
+        this.isLoading = false;
+        if (persistSession) {
+          this.router.navigate(['/dashboard']);
+          return;
+        }
+
+        this.snackBar.open('User created successfully', 'Close', { duration: 3000 });
+        this.form.reset({ role: 'Employee' });
       },
       error: (err) => {
         this.isLoading = false;

@@ -10,6 +10,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { LeaveRequestService } from '../../../core/services/leave-request.service';
 import { LeaveRequest } from '../../../core/models/leave-request.model';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-leave-list',
@@ -22,15 +23,20 @@ import { LeaveRequest } from '../../../core/models/leave-request.model';
 })
 export class LeaveListComponent implements OnInit {
   leaves: LeaveRequest[] = [];
-  displayedColumns = ['employee', 'leaveType', 'startDate', 'endDate', 'reason', 'status', 'actions'];
+  displayedColumns: string[] = [];
 
   constructor(
     private leaveService: LeaveRequestService,
+    public authService: AuthService,
     private snackBar: MatSnackBar,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
+    this.displayedColumns = this.authService.canApproveLeaves()
+      ? ['employee', 'leaveType', 'startDate', 'endDate', 'reason', 'status', 'actions']
+      : ['leaveType', 'startDate', 'endDate', 'reason', 'status'];
+
     this.loadLeaves();
   }
 

@@ -16,7 +16,7 @@ export interface CreateLeaveRequest {
   endDate: string;
   leaveType: number;
   reason: string;
-  employeeId: number;
+  employeeId?: number;
 }
 
 export interface UpdateLeaveStatus {
