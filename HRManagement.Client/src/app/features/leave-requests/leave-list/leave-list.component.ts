@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { LeaveRequestService } from '../../../core/services/leave-request.service';
 import { LeaveRequest } from '../../../core/models/leave-request.model';
 
@@ -14,7 +15,8 @@ import { LeaveRequest } from '../../../core/models/leave-request.model';
   selector: 'app-leave-list',
   standalone: true,
   imports: [CommonModule, RouterLink, MatTableModule, MatButtonModule,
-            MatIconModule, MatCardModule, MatChipsModule, MatSnackBarModule],
+            MatIconModule, MatCardModule, MatChipsModule, MatSnackBarModule,
+            MatTooltipModule],
   templateUrl: './leave-list.component.html',
   styleUrl: './leave-list.component.scss'
 })

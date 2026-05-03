@@ -15,3 +15,4 @@ E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Ap
 E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\refint\HRManagement.Application.dll
 E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.pdb
 E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\ref\HRManagement.Application.dll
+E:\professional\PRO_1\HRManagement.Application\obj\Debug\net10.0\HRManagement.Application.sourcelink.json

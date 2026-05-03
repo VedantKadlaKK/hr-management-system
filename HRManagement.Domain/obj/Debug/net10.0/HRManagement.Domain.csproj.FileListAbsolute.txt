@@ -9,3 +9,4 @@ E:\professional\PRO_1\HRManagement.Domain\obj\Debug\net10.0\HRManagement.Domain.
 E:\professional\PRO_1\HRManagement.Domain\obj\Debug\net10.0\refint\HRManagement.Domain.dll
 E:\professional\PRO_1\HRManagement.Domain\obj\Debug\net10.0\HRManagement.Domain.pdb
 E:\professional\PRO_1\HRManagement.Domain\obj\Debug\net10.0\ref\HRManagement.Domain.dll
+E:\professional\PRO_1\HRManagement.Domain\obj\Debug\net10.0\HRManagement.Domain.sourcelink.json

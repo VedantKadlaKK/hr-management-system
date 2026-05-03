@@ -167,3 +167,4 @@ E:\professional\PRO_1\HRManagement.API\obj\Debug\net10.0\refint\HRManagement.API
 E:\professional\PRO_1\HRManagement.API\obj\Debug\net10.0\HRManagement.API.pdb
 E:\professional\PRO_1\HRManagement.API\obj\Debug\net10.0\HRManagement.API.genruntimeconfig.cache
 E:\professional\PRO_1\HRManagement.API\obj\Debug\net10.0\ref\HRManagement.API.dll
+E:\professional\PRO_1\HRManagement.API\obj\Debug\net10.0\HRManagement.API.sourcelink.json
